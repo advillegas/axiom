@@ -1,0 +1,317 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Axiom Inspection Services — Brand Tokens
+   Built on the Nero Design System (OKLCH, Tailwind v4, shadcn/ui).
+
+   Primary    Axiom Steel Blue   technical, structural, trustworthy
+   Accent     Safety Orange      CTAs, hazard markers, highlights
+   Surface    Cool neutral grays calm, professional, unobtrusive
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Brand-specific tokens */
+  --color-steel: var(--steel);
+  --color-steel-foreground: var(--steel-foreground);
+  --color-safety: var(--safety);
+  --color-safety-foreground: var(--safety-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Surface — cool neutral, faintly blue-tinted */
+  --background: oklch(0.99 0.003 240);
+  --foreground: oklch(0.18 0.02 245);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 245);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 245);
+
+  /* Primary — Axiom Steel Blue */
+  --primary: oklch(0.42 0.13 245);
+  --primary-foreground: oklch(0.99 0.003 240);
+
+  /* Secondary — light cool gray */
+  --secondary: oklch(0.965 0.005 240);
+  --secondary-foreground: oklch(0.22 0.03 245);
+
+  --muted: oklch(0.965 0.005 240);
+  --muted-foreground: oklch(0.5 0.015 245);
+
+  /* Accent — slightly more pronounced cool gray for hover states */
+  --accent: oklch(0.93 0.012 240);
+  --accent-foreground: oklch(0.22 0.03 245);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.9 0.008 240);
+  --input: oklch(0.9 0.008 240);
+  --ring: oklch(0.42 0.13 245);
+
+  /* Brand */
+  --steel: oklch(0.42 0.13 245);
+  --steel-foreground: oklch(0.99 0.003 240);
+  --safety: oklch(0.72 0.18 55);
+  --safety-foreground: oklch(0.18 0.02 245);
+
+  /* Charts */
+  --chart-1: oklch(0.42 0.13 245);
+  --chart-2: oklch(0.55 0.14 230);
+  --chart-3: oklch(0.72 0.18 55);
+  --chart-4: oklch(0.5 0.12 200);
+  --chart-5: oklch(0.32 0.06 245);
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Surface — deep navy, never pure black */
+  --background: oklch(0.14 0.015 245);
+  --foreground: oklch(0.97 0.005 240);
+
+  --card: oklch(0.18 0.018 245);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.18 0.018 245);
+  --popover-foreground: oklch(0.97 0.005 240);
+
+  /* Primary — brighter steel for dark mode contrast */
+  --primary: oklch(0.72 0.13 240);
+  --primary-foreground: oklch(0.14 0.015 245);
+
+  --secondary: oklch(0.25 0.02 245);
+  --secondary-foreground: oklch(0.97 0.005 240);
+
+  --muted: oklch(0.25 0.02 245);
+  --muted-foreground: oklch(0.7 0.012 240);
+
+  --accent: oklch(0.32 0.025 245);
+  --accent-foreground: oklch(0.97 0.005 240);
+
+  --destructive: oklch(0.7 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.13 240);
+
+  --steel: oklch(0.72 0.13 240);
+  --steel-foreground: oklch(0.14 0.015 245);
+  --safety: oklch(0.78 0.18 55);
+  --safety-foreground: oklch(0.14 0.015 245);
+
+  --chart-1: oklch(0.72 0.13 240);
+  --chart-2: oklch(0.65 0.14 220);
+  --chart-3: oklch(0.78 0.18 55);
+  --chart-4: oklch(0.55 0.12 200);
+  --chart-5: oklch(0.85 0.04 240);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+  * {
+    @apply outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: oklch(from var(--primary) l c h / 0.25);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Hero gradient overlay — readable text on imagery */
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      oklch(0.14 0.02 245 / 0.55) 0%,
+      oklch(0.14 0.02 245 / 0.7) 60%,
+      oklch(0.14 0.02 245 / 0.92) 100%
+    );
+  }
+  .dark .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      oklch(0.08 0.015 245 / 0.65) 0%,
+      oklch(0.08 0.015 245 / 0.78) 60%,
+      oklch(0.08 0.015 245 / 0.95) 100%
+    );
+  }
+
+  /* Subtle grid background for technical / blueprint feel */
+  .pattern-grid {
+    background-image:
+      linear-gradient(to right, oklch(from var(--foreground) l c h / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(from var(--foreground) l c h / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .pattern-dots {
+    background-image: radial-gradient(
+      oklch(from var(--foreground) l c h / 0.07) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  /* Reveal-on-scroll helper */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 0%,
+      oklch(from var(--primary) calc(l + 0.18) c h) 50%,
+      var(--safety) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glass card surface */
+  .glass {
+    background-color: oklch(from var(--card) l c h / 0.65);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+  }
+
+  /* Soft glow */
+  .glow-steel {
+    box-shadow:
+      0 0 0 1px oklch(from var(--primary) l c h / 0.1),
+      0 16px 50px -16px oklch(from var(--primary) l c h / 0.45);
+  }
+
+  /* Animated underline for nav links */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Marquee for service-area chips */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  /* Subtle float */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+/* Themed scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(from var(--primary) l c h / 0.5) transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(from var(--primary) l c h / 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(from var(--primary) l c h / 0.7);
+}
