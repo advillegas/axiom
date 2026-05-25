@@ -37,9 +37,9 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-20 py-24 sm:py-32">
+    <section id="contact" className="scroll-mt-20 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left: Header + contact details */}
           <div ref={detailsRef} className="reveal-up lg:col-span-5">
             <SectionHeader
@@ -48,7 +48,7 @@ export function Contact() {
               body={t.contactBody[locale]}
             />
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-7 space-y-3 sm:mt-10 sm:space-y-5">
               <ContactRow
                 icon={<Phone className="size-5" />}
                 label={locale === "en" ? "Call" : "Llamar"}
@@ -92,9 +92,9 @@ export function Contact() {
           {/* Right: Form */}
           <div
             ref={formRef}
-            className="reveal-up rounded-2xl border bg-card p-6 shadow-xl sm:p-8 lg:col-span-7 lg:p-10"
+            className="reveal-up rounded-xl border bg-card p-5 shadow-xl sm:rounded-2xl sm:p-8 lg:col-span-7 lg:p-10"
           >
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2">
               <Field label={t.formName[locale]} name="name" required />
               <Field label={t.formEmail[locale]} name="email" type="email" required />
               <Field label={t.formPhone[locale]} name="phone" type="tel" required />
@@ -105,7 +105,7 @@ export function Contact() {
               </div>
 
               <div className="sm:col-span-2">
-                <Label htmlFor="message" className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <Label htmlFor="message" className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:tracking-[0.16em]">
                   {t.formMessage[locale]}
                 </Label>
                 <Textarea
@@ -118,8 +118,8 @@ export function Contact() {
                 />
               </div>
 
-              <div className="sm:col-span-2 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-xs text-muted-foreground">
+              <div className="flex flex-col-reverse items-stretch gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
                   {locale === "en"
                     ? "By submitting you agree to be contacted about your project."
                     : "Al enviar, aceptas ser contactado sobre tu proyecto."}
@@ -128,7 +128,7 @@ export function Contact() {
                   type="submit"
                   size="lg"
                   disabled={status === "sending"}
-                  className="min-w-44"
+                  className="w-full sm:w-auto sm:min-w-44"
                 >
                   {status === "sending" ? (
                     <>{t.formSending[locale]}</>
@@ -174,12 +174,32 @@ function Field({
     <div>
       <Label
         htmlFor={name}
-        className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground"
+        className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:tracking-[0.16em]"
       >
         {label}
         {required && <span className="ml-1 text-primary">*</span>}
       </Label>
-      <Input id={name} name={name} type={type} required={required} className="mt-1.5" />
+      <Input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        autoComplete={
+          name === "name"
+            ? "name"
+            : name === "email"
+            ? "email"
+            : name === "phone"
+            ? "tel"
+            : name === "company"
+            ? "organization"
+            : "off"
+        }
+        inputMode={
+          type === "email" ? "email" : type === "tel" ? "tel" : undefined
+        }
+        className="mt-1.5 h-11"
+      />
     </div>
   );
 }

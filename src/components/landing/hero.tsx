@@ -31,28 +31,28 @@ export function Hero() {
         <div className="absolute inset-0 pattern-grid opacity-25" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:pb-36 lg:pt-40">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 pb-16 pt-24 sm:gap-12 sm:px-6 sm:pb-24 sm:pt-32 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:pb-36 lg:pt-40">
         {/* Left column — copy */}
         <div className="text-white lg:col-span-7">
           <Badge
             variant="outline"
-            className="border-white/20 bg-white/10 text-xs font-medium uppercase tracking-[0.18em] text-white/90 backdrop-blur"
+            className="border-white/20 bg-white/10 text-[10px] font-medium uppercase tracking-[0.16em] text-white/90 backdrop-blur sm:text-xs sm:tracking-[0.18em]"
           >
             <ShieldCheck className="mr-1.5 size-3.5" />
             {t.heroEyebrow[locale]}
           </Badge>
 
-          <h1 className="font-display mt-6 text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+          <h1 className="font-display mt-5 text-balance text-[2.25rem] font-semibold leading-[1.05] tracking-tight sm:mt-6 sm:text-5xl md:text-6xl lg:text-[4.25rem]">
             {t.heroTitle[locale]}{" "}
             <span className="text-gradient">{t.heroTitleAccent[locale]}</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-pretty text-[15px] leading-relaxed text-white/80 sm:mt-6 sm:text-lg">
             {t.heroBody[locale]}
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button asChild size="xl" className="group">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
+            <Button asChild size="xl" className="group w-full sm:w-auto">
               <Link href="#contact">
                 {t.heroCta[locale]}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -62,46 +62,25 @@ export function Hero() {
               asChild
               size="xl"
               variant="outline"
-              className="border-white/30 bg-white/5 text-white backdrop-blur hover:bg-white/15 hover:text-white"
+              className="w-full border-white/30 bg-white/5 text-white backdrop-blur hover:bg-white/15 hover:text-white sm:w-auto"
             >
               <Link href="#services">{t.heroCta2[locale]}</Link>
             </Button>
           </div>
 
           {/* Stats */}
-          <dl className="mt-14 grid max-w-xl grid-cols-3 gap-8 border-t border-white/15 pt-8">
-            <div>
-              <dt className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
-                {t.heroStat1[locale]}
-              </dt>
-              <dd className="font-display mt-1 text-3xl font-semibold tracking-tight">
-                40+
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
-                {t.heroStat2[locale]}
-              </dt>
-              <dd className="font-display mt-1 text-3xl font-semibold tracking-tight">
-                1,200+
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
-                {t.heroStat3[locale]}
-              </dt>
-              <dd className="font-display mt-1 text-3xl font-semibold tracking-tight">
-                12
-              </dd>
-            </div>
+          <dl className="mt-10 grid max-w-xl grid-cols-3 gap-3 border-t border-white/15 pt-6 sm:mt-14 sm:gap-8 sm:pt-8">
+            <Stat label={t.heroStat1[locale]} value="40+" />
+            <Stat label={t.heroStat2[locale]} value="1,200+" />
+            <Stat label={t.heroStat3[locale]} value="12" />
           </dl>
         </div>
 
         {/* Right column — floating spec card */}
         <div className="relative lg:col-span-5">
-          <div className="relative ml-auto w-full max-w-md">
+          <div className="relative mx-auto w-full max-w-md lg:ml-auto lg:mr-0">
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[var(--primary)]/40 via-transparent to-[var(--safety)]/30 opacity-60 blur-2xl" />
-            <div className="glass relative animate-float rounded-2xl border border-white/15 p-6 shadow-2xl">
+            <div className="glass relative animate-float rounded-2xl border border-white/15 p-5 shadow-2xl sm:p-6">
               <div className="flex items-center justify-between text-white">
                 <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/60">
                   Field Report · #4173
@@ -119,11 +98,14 @@ export function Hero() {
                   { k: "Findings", v: "0 non-conforming" },
                   { k: "Samples", v: "12 / 12 PASS" },
                 ].map((row) => (
-                  <div key={row.k} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2 last:border-0 last:pb-0">
-                    <span className="text-xs uppercase tracking-wider text-white/50">
+                  <div
+                    key={row.k}
+                    className="flex items-baseline justify-between gap-3 border-b border-white/10 pb-2 last:border-0 last:pb-0"
+                  >
+                    <span className="text-[11px] uppercase tracking-wider text-white/50 sm:text-xs">
                       {row.k}
                     </span>
-                    <span className="text-right text-sm font-medium text-white">
+                    <span className="min-w-0 truncate text-right text-[13px] font-medium text-white sm:text-sm">
                       {row.v}
                     </span>
                   </div>
@@ -146,5 +128,18 @@ export function Hero() {
       {/* Bottom fade into next section */}
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background" />
     </section>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="min-w-0">
+      <dt className="text-[10px] font-medium uppercase leading-tight tracking-[0.14em] text-white/60 sm:text-[11px] sm:tracking-[0.18em]">
+        {label}
+      </dt>
+      <dd className="font-display mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
+        {value}
+      </dd>
+    </div>
   );
 }

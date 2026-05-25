@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Logo />
@@ -28,7 +28,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 lg:col-span-7 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:col-span-7">
             <div>
               <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground">
                 {locale === "en" ? "Explore" : "Explorar"}
@@ -95,7 +95,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t pt-6 text-xs text-muted-foreground sm:mt-12 sm:flex-row sm:items-center">
           <p>
             © {year} Axiom Inspection Services, Inc. {t.footerRights[locale]}
           </p>

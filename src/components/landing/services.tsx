@@ -19,15 +19,15 @@ export function Services() {
   const ctaRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="services" className="relative scroll-mt-20 py-24 sm:py-32">
+    <section id="services" className="relative scroll-mt-20 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="reveal-up flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div ref={headerRef} className="reveal-up flex flex-col items-start gap-5 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             eyebrow={t.servicesEyebrow[locale]}
             title={t.servicesTitle[locale]}
             body={t.servicesBody[locale]}
           />
-          <Button asChild variant="outline" className="shrink-0">
+          <Button asChild variant="outline" className="hidden shrink-0 lg:inline-flex">
             <Link href="#contact">
               {t.servicesAll[locale]}
               <ArrowUpRight className="size-4" />
@@ -35,7 +35,7 @@ export function Services() {
           </Button>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-14 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, idx) => {
             const copy = locale === "en" ? s.en : s.es;
             return (
@@ -82,20 +82,20 @@ export function Services() {
         {/* Unsure callout */}
         <div
           ref={ctaRef}
-          className="reveal-up mt-16 overflow-hidden rounded-2xl border bg-gradient-to-br from-primary/5 via-card to-card p-8 sm:p-10 lg:p-12"
+          className="reveal-up mt-12 overflow-hidden rounded-2xl border bg-gradient-to-br from-primary/5 via-card to-card p-6 sm:mt-16 sm:p-10 lg:p-12"
         >
-          <div className="grid gap-8 lg:grid-cols-3 lg:items-center">
+          <div className="grid gap-6 lg:grid-cols-3 lg:items-center lg:gap-8">
             <div className="lg:col-span-2">
               <Badge variant="steel">{t.servicesEyebrow[locale]}</Badge>
-              <h3 className="font-display mt-3 text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h3 className="font-display mt-3 text-balance text-xl font-semibold tracking-tight sm:text-2xl lg:text-3xl">
                 {t.servicesUnsure[locale]}
               </h3>
-              <p className="mt-3 max-w-xl text-base text-muted-foreground">
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
                 {t.servicesUnsureBody[locale]}
               </p>
             </div>
             <div className="lg:justify-self-end">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="w-full sm:w-auto">
                 <Link href="#contact">
                   {t.servicesUnsureCta[locale]}
                   <ArrowUpRight className="size-4" />

@@ -17,7 +17,7 @@ export function Faq() {
   const headerRef = useReveal<HTMLDivElement>();
 
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="reveal-up">
           <SectionHeader
@@ -28,15 +28,15 @@ export function Faq() {
           />
         </div>
 
-        <Accordion type="single" collapsible className="mt-12 w-full">
+        <Accordion type="single" collapsible className="mt-8 w-full sm:mt-12">
           {FAQ.map((q, i) => {
             const copy = locale === "en" ? q.en : q.es;
             return (
               <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
+                <AccordionTrigger className="py-5 text-left text-[15px] font-semibold sm:text-base lg:text-lg">
                   {copy.q}
                 </AccordionTrigger>
-                <AccordionContent className="pr-4 text-base leading-relaxed">
+                <AccordionContent className="pr-2 text-[15px] leading-relaxed sm:pr-4 sm:text-base">
                   {copy.a}
                 </AccordionContent>
               </AccordionItem>

@@ -23,15 +23,15 @@ export function SectionHeader({
         className
       )}
     >
-      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+      <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary sm:text-[11px] sm:tracking-[0.22em]">
         <span className="block h-px w-6 bg-primary/60" />
         {eyebrow}
       </span>
-      <h2 className="font-display mt-4 text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-[2.65rem]">
+      <h2 className="font-display mt-3 text-balance text-[1.75rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:mt-4 sm:text-3xl md:text-4xl lg:text-[2.65rem]">
         {title}
       </h2>
       {body && (
-        <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="mt-3 text-pretty text-[15px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-base lg:text-lg">
           {body}
         </p>
       )}

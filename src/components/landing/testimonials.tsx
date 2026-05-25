@@ -14,7 +14,7 @@ export function Testimonials() {
   const headerRef = useReveal<HTMLDivElement>();
 
   return (
-    <section className="bg-muted/30 py-24 sm:py-32">
+    <section className="bg-muted/30 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="reveal-up">
           <SectionHeader
@@ -25,19 +25,19 @@ export function Testimonials() {
           />
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((tm) => {
             const copy = locale === "en" ? tm.en : tm.es;
             return (
               <figure
                 key={copy.name}
-                className="group relative flex h-full flex-col rounded-2xl border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+                className="group relative flex h-full flex-col rounded-xl border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl sm:rounded-2xl sm:p-7"
               >
                 <Quote
                   aria-hidden
-                  className="size-8 text-primary/30 transition-colors group-hover:text-primary/60"
+                  className="size-7 text-primary/30 transition-colors group-hover:text-primary/60 sm:size-8"
                 />
-                <blockquote className="mt-4 text-base leading-relaxed text-foreground">
+                <blockquote className="mt-4 text-[15px] leading-relaxed text-foreground sm:text-base">
                   &ldquo;{copy.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-3 border-t pt-5">

@@ -61,8 +61,12 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="#top" className="-ml-1 rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
+        <Link
+          href="#top"
+          className="-ml-1 shrink-0 rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label="Axiom Inspection Services — home"
+        >
           <Logo />
         </Link>
 
@@ -82,7 +86,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-0.5 sm:gap-1.5">
           <Button
             asChild
             variant="ghost"
@@ -93,6 +97,18 @@ export function Navbar() {
               <Phone className="size-4" />
               <span className="hidden xl:inline">{t.callNow[locale]}</span>
               <span className="xl:hidden">(562) 753-7047</span>
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            aria-label="Call Axiom Inspection Services"
+            className="md:hidden"
+          >
+            <Link href="tel:+15627537047">
+              <Phone className="size-4" />
             </Link>
           </Button>
 
@@ -118,29 +134,34 @@ export function Navbar() {
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent
+              side="right"
+              className="flex w-full max-w-sm flex-col p-6 sm:max-w-sm"
+            >
               <SheetHeader className="text-left">
                 <SheetTitle>
                   <Logo />
                 </SheetTitle>
               </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-1">
+              <nav className="mt-6 flex flex-col gap-1">
                 {SECTIONS.map((s) => (
                   <SheetClose asChild key={s.id}>
                     <Link
                       href={`#${s.id}`}
-                      className="rounded-md px-3 py-2.5 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      className="rounded-md px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
                       {t[s.key][locale]}
                     </Link>
                   </SheetClose>
                 ))}
               </nav>
-              <div className="mt-6 flex flex-col gap-3 border-t pt-6">
-                <Button asChild>
-                  <Link href="#contact">{t.navCta[locale]}</Link>
-                </Button>
-                <Button asChild variant="outline">
+              <div className="mt-auto flex flex-col gap-3 border-t pt-6">
+                <SheetClose asChild>
+                  <Button asChild size="lg">
+                    <Link href="#contact">{t.navCta[locale]}</Link>
+                  </Button>
+                </SheetClose>
+                <Button asChild variant="outline" size="lg">
                   <Link href="tel:+15627537047">
                     <Phone className="size-4" />
                     {t.callNow[locale]}
